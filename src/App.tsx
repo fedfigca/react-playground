@@ -45,12 +45,12 @@ function App() {
             title="Idalus crinis"
           />
           <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Idalus Crinis
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Idalus crinis is a moth of the family Erebidae. It was described by Herbert Druce in 1884.
-          </Typography>
+            <Typography gutterBottom variant="h5" component="div">
+              Idalus Crinis
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Idalus crinis is a moth of the family Erebidae. It was described by Herbert Druce in 1884.
+            </Typography>
           </CardContent>
         </Card>
       </section>
