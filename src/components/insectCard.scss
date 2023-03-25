@@ -1,0 +1,15 @@
+.igalore__icard-list--highlights {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  padding: 1em;
+}
+
+.igalore__card {
+  justify-self: center;
+  width: 100%;
+}
