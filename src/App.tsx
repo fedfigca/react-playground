@@ -1,8 +1,11 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import CssBaseline from '@mui/material/CssBaseline';
+import { Container, CssBaseline, Typography } from '@mui/material';
+import { Card, CardMedia, CardContent } from '@mui/material'
 
 import './App.css'
+
+import idalus from './assets/idalus.jpeg'
 
 function App() {
   const appContainer = useRef(null);
@@ -25,10 +28,37 @@ function App() {
   }, []);
 
   return (
-    <div className='igalore' ref={appContainer}>
+    <Container className='igalore' ref={appContainer}>
       <CssBaseline />
 
-    </div>
+      <section className='igalore__hero'>
+        <Typography gutterBottom variant="h1" component="h1" className='igalore__hero-header'>
+          Insect Galore!
+        </Typography>
+      </section>
+
+      <section className='igalore__highlights'>
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia
+            sx={{ height: 210 }}
+            image={idalus}
+            title="Idalus crinis"
+          />
+          <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Idalus Crinis
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Idalus crinis is a moth of the family Erebidae. It was described by Herbert Druce in 1884.
+          </Typography>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className='igalore__orders'>
+
+      </section>
+    </Container>
   )
 }
 
