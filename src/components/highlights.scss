@@ -1,0 +1,11 @@
+.igalore__higlights {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  max-width: 100%;
+  padding: 1em;
+}

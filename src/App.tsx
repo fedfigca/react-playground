@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { Container, CssBaseline, Typography } from '@mui/material';
 
 import './App.scss'
-import InsectCard from './components/insectCard'
+import Highlights from './components/highlights'
 
 function App() {
   const appContainer = useRef(null);
@@ -35,9 +35,7 @@ function App() {
         </Typography>
       </section>
 
-      <section className='igalore__highlights'>
-        <InsectCard />
-      </section>
+      <Highlights />
 
       <section className='igalore__orders'>
 
