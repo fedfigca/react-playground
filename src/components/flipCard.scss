@@ -1,0 +1,34 @@
+.igalore__flipcard {
+  background-color: transparent;
+  width: 500px;
+  height: 332px;
+}
+
+.igalore__flipcard--inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.igalore__flipcard:hover .igalore__flipcard--inner {
+  transform: rotateY(180deg);
+}
+
+.igalore__picture, .igalore__card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.igalore__picture {
+  background-color: #bbb;
+  color: black;
+}
+
+.igalore__card {
+  transform: rotateY(180deg);
+}

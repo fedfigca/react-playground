@@ -1,5 +1,10 @@
 .igalore__card {
   justify-self: center;
   width: 100%;
+  max-width: 100% !important;
   opacity: 0;
+}
+
+.igalore__card--datalist {
+  text-align: left;
 }

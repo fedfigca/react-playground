@@ -3,7 +3,9 @@ import { gsap } from 'gsap'
 
 import { Observation } from '../resources/inaturalistDataTypes'
 import { getObservations } from '../resources/data-service'
-import InsectCard from './insectCard';
+import FlipCard from './flipCard'
+import InsectCard from './insectCard'
+import InsectPicture from './insectPicture'
 
 import './highlights.scss'
 
@@ -15,7 +17,7 @@ function highlights() {
       try {
         const data = await getObservations()
         setObservations(data);
-        gsap.fromTo('.igalore__card', {
+        gsap.fromTo('.igalore__card, .igalore__picture', {
           opacity: 0,
           scale: 0.4
         }, {
@@ -35,7 +37,10 @@ function highlights() {
   return (
     <section className="igalore__higlights">
       {observations.map((observation, index) => (
-        <InsectCard key={observation.id} observation={observation}></InsectCard>
+        <FlipCard>
+          <InsectCard key={`card-${observation.id}`} observation={observation}></InsectCard>
+          <InsectPicture key={`picture-${observation.id}`} observation={observation}></InsectPicture>
+        </FlipCard>
       ))}
     </section>
   )
