@@ -1,4 +1,4 @@
-import { Card, CardMedia, CardContent, List, ListItem, ListItemText } from '@mui/material'
+import { Card, CardMedia, CardContent } from '@mui/material'
 import { Observation } from '../resources/inaturalistDataTypes'
 
 import './insectCard.scss'
@@ -16,22 +16,35 @@ function insectCard({observation}: {observation: Observation}) {
             image={observation.photos![0].small_url || undefined}
             title="Idalus crinis"
           />
-          : ''}
+          : ""}
         <CardContent>
-          <List className="igalore__card--datalist">
-            <ListItem disablePadding className="igalore__card--datalist-item">
-              <ListItemText>Scientific Name: {observation.taxon!.name} (level: {observation.taxon!.rank})</ListItemText>
-            </ListItem>
-            {observation.taxon!.common_name ? <ListItem disablePadding className="igalore__card--datalist-item">
-              <ListItemText>Common Name: {observation.taxon!.common_name.name}</ListItemText>
-            </ListItem> : null}
-            <ListItem disablePadding className="igalore__card--datalist-item">
-              <ListItemText>Observed on: {observation.observed_on_string}</ListItemText>
-            </ListItem>
-            <ListItem disablePadding className="igalore__card--datalist-item">
-              <ListItemText>Observed at: {observation.place_guess}</ListItemText>
-            </ListItem>
-          </List>
+          <ul className="igalore__card--datalist">
+            <li className="igalore__card--datalist-item">
+              <p className="igalore__card--datalist-text">
+                <span className="igalore__card--datalist-label">Scientific Name:</span>
+                <span className="igalore__card--datalist-value igalore__card--datalist-value__taxon">{observation.taxon!.name}</span>
+                <span className={`igalore__card--datalist-category igalore__card--datalist-category__${observation.taxon!.rank}`}>{observation.taxon!.rank}</span>
+              </p>
+            </li>
+            {observation.taxon!.common_name ? <li className="igalore__card--datalist-item">
+              <p className="igalore__card--datalist-text">
+                <span className="igalore__card--datalist-label">Common Name:</span>
+                <span className="igalore__card--datalist-value">{observation.taxon!.common_name.name}</span>
+              </p>
+            </li> : null}
+            <li className="igalore__card--datalist-item">
+              <p className="igalore__card--datalist-text">
+                <span className="igalore__card--datalist-label">Observed on:</span>
+                <span className="igalore__card--datalist-value">{observation.observed_on_string}</span>
+              </p>
+            </li>
+            <li className="igalore__card--datalist-item">
+              <p className="igalore__card--datalist-text">
+                <span className="igalore__card--datalist-label">Observed at:</span>
+                <span className="igalore__card--datalist-value">{observation.place_guess}</span>
+              </p>
+            </li>
+          </ul>
         </CardContent>
       </Card>
   )

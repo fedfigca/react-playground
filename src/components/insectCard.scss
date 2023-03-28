@@ -7,4 +7,56 @@
 
 .igalore__card--datalist {
   text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.igalore__card--datalist-item {
+  list-style-type: none;
+  list-style-image: none;
+  padding: 0;
+  margin: 0;
+}
+
+.igalore__card--datalist-text {
+  margin: 0;
+  padding: 0;
+  font-size: 0.85em;
+}
+
+.igalore__card--datalist-label {
+  display: inline-block;
+  min-width: 110px;
+}
+
+.igalore__card--datalist-value {
+  display: inline-block;
+  font-weight: 600;
+}
+
+.igalore__card--datalist-value__taxon {
+  font-style: italic;
+}
+
+.igalore__card--datalist-category {
+  display: inline-block;
+  padding: 2px 5px;
+  margin: 0 0 0 6px;
+  border-radius: 3px;
+  background-color: #eb8064;
+  color: #fef8ec;
+}
+
+.igalore__card--datalist-category__species {
+  background-color: #008488;
+  color: #fef8ec;
+
+  &::after {
+    content: "⭐";
+  }
+}
+
+.igalore__card--datalist-category__genus {
+  background-color: #0e9bd1;
+  color: #fef8ec;
 }
