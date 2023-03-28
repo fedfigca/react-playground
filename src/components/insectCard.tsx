@@ -13,7 +13,7 @@ function insectCard({observation}: {observation: Observation}) {
         { observation.observation_photos_count! > 0 ?
           <CardMedia
             sx={{ height: 210 }}
-            image={observation.photos![0].small_url || undefined}
+            image={observation.photos![2] && observation.photos![2].small_url ? observation.photos![1].small_url || undefined : observation.photos![0].small_url || undefined}
             title="Idalus crinis"
           />
           : ""}

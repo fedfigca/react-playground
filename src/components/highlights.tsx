@@ -10,21 +10,18 @@ import InsectPicture from './insectPicture'
 import './highlights.scss'
 
 function highlights() {
-  const [observations, setObservations] = useState<Observation[]>([]);
+  const [highlights, setHighlights] = useState<Observation[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getObservations()
-        setObservations(data);
-        gsap.fromTo('.igalore__card, .igalore__picture', {
-          opacity: 0,
-          scale: 0.4
-        }, {
-          opacity: 1,
-          scale: 1,
-          stagger: 0.5
-        })
+        if (data.length > 6) {
+          data.sort( () => 0.5 - Math.random() )
+          setHighlights(data.slice(0, 6))
+        } else {
+          setHighlights(data);
+        }
       } catch (error) {
         console.log(error)
         return error
@@ -34,10 +31,21 @@ function highlights() {
     fetchData()
   }, [])
 
+  useEffect(() => {
+    gsap.fromTo('.igalore__flipcard', {
+      opacity: 0,
+      scale: 0.4
+    }, {
+      opacity: 1,
+      scale: 1,
+      stagger: 0.5
+    })
+  }, [highlights]);
+
   return (
     <section className="igalore__higlights">
-      {observations.map((observation, index) => (
-        <FlipCard>
+      {highlights.map((observation, index) => (
+        <FlipCard key={observation.id}>
           <InsectCard key={`card-${observation.id}`} observation={observation}></InsectCard>
           <InsectPicture key={`picture-${observation.id}`} observation={observation}></InsectPicture>
         </FlipCard>
