@@ -9,3 +9,11 @@
   max-width: 100%;
   padding: 1em;
 }
+
+.igalore__higlights--item {
+  z-index: 10;
+
+  &:hover {
+    z-index: 40;
+  }
+}

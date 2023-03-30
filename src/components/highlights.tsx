@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 
 import { Observation } from '../resources/inaturalistDataTypes'
@@ -11,6 +11,16 @@ import './highlights.scss'
 
 function highlights() {
   const [highlights, setHighlights] = useState<Observation[]>([]);
+  const highlightRefs = useRef<(HTMLElement | null)[]>([]);
+  highlightRefs.current = [];
+
+  const addToRefs = (element: HTMLDivElement) => {
+
+    if (element && !highlightRefs.current.includes(element)) {
+      highlightRefs.current.push(element);
+      console.log(element)
+    }
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,15 +50,18 @@ function highlights() {
       scale: 1,
       stagger: 0.5
     })
-  }, [highlights]);
+    console.log('vez')
+  }, [highlightRefs.current]);
 
   return (
     <section className="igalore__higlights">
       {highlights.map((observation, index) => (
-        <FlipCard key={observation.id}>
-          <InsectCard key={`card-${observation.id}`} observation={observation}></InsectCard>
-          <InsectPicture key={`picture-${observation.id}`} observation={observation}></InsectPicture>
-        </FlipCard>
+        <div key={observation.id} ref={addToRefs} className="igalore__higlights--item">
+          <FlipCard>
+            <InsectCard key={`card-${observation.id}`} observation={observation}></InsectCard>
+            <InsectPicture key={`picture-${observation.id}`} observation={observation}></InsectPicture>
+          </FlipCard>
+        </div>
       ))}
     </section>
   )
