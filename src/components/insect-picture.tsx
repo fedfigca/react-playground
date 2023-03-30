@@ -1,6 +1,6 @@
-import { Observation } from '../resources/inaturalistDataTypes'
+import { Observation } from '../resources/inaturalist-data-types'
 
-import './insectPicture.scss'
+import './insect-picture.scss'
 
 function insectPicture({observation}: {observation: Observation}) {
   function createGrade(grade: string) {

@@ -1,4 +1,4 @@
-import { Observation } from "./inaturalistDataTypes"
+import { Observation } from "./inaturalist-data-types"
 
 type JSONResponse = {
   data?: Observation | Observation[]

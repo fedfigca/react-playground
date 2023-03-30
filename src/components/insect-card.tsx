@@ -1,7 +1,7 @@
 import { Card, CardMedia, CardContent } from '@mui/material'
-import { Observation } from '../resources/inaturalistDataTypes'
+import { Observation } from '../resources/inaturalist-data-types'
 
-import './insectCard.scss'
+import './insect-card.scss'
 
 function insectCard({observation}: {observation: Observation}) {
 

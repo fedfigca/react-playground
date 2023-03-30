@@ -1,5 +1,5 @@
 import React from "react"
-import './flipCard.scss'
+import './flip-card.scss'
 
 function flipCard({children}: {children: React.ReactNode}) {
   return (

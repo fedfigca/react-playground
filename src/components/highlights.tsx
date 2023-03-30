@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 
-import { Observation } from '../resources/inaturalistDataTypes'
+import { Observation } from '../resources/inaturalist-data-types'
 import { getObservations } from '../resources/data-service'
-import FlipCard from './flipCard'
-import InsectCard from './insectCard'
-import InsectPicture from './insectPicture'
+import FlipCard from './flip-card'
+import InsectCard from './insect-card'
+import InsectPicture from './insect-picture'
 
 import './highlights.scss'
 
