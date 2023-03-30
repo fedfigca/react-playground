@@ -2,18 +2,18 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { Container, CssBaseline, Typography } from '@mui/material';
 
-import './App.scss'
-import Highlights from './components/highlights'
+import './Home.scss'
+import Highlights from '../components/highlights'
 
-function App() {
-  const appContainer = useRef(null);
+function Home() {
+  const homeContainer = useRef(null);
 
   useEffect(() => {
     /**
      * Fade in the entire app to make it
      * easy on the eyes and encourage exploration
      */
-    gsap.fromTo(appContainer.current,
+    gsap.fromTo(homeContainer.current,
       {
         alpha: 0,
       },
@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   return (
-    <Container className='igalore' ref={appContainer}>
+    <Container className='igalore' ref={homeContainer}>
       <CssBaseline />
 
       <section className='igalore__hero'>
@@ -44,4 +44,4 @@ function App() {
   )
 }
 
-export default App
+export default Home
