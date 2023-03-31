@@ -26,6 +26,7 @@ export const getObservations = async (): Promise<Observation[]> => {
 
 type ContextProps = {
   observations: Observation[],
+  getInsect: Function
 }
 
 type WithChildProps = {
@@ -34,28 +35,40 @@ type WithChildProps = {
 
 export const ObservationsContext = createContext({
   observations: [],
+  getInsect: () => undefined
 } as ContextProps)
 
-
 export const ObservationsProvider = ({ children }: WithChildProps) => {
-  const [ observationsList, setObservationList ] = useState<ContextProps>({observations: []});
+  const [ observationsList, setObservationList ] = useState<Observation[]>([]);
 
   const fetchData = async () => {
     try {
       const data = await getObservations()
-      setObservationList({observations: data})
+      setObservationList(data)
     } catch (error) {
       console.log(error)
       return error
     }
   }
 
-  if (observationsList.observations.length < 30) {
+  const getInsect = (id: number) => {
+    const insect = observationsList.find((item) => {
+      return item.id === id
+    })
+
+    if (insect) {
+      return insect
+    } else {
+      return new Error('No insect found')
+    }
+  }
+
+  if (observationsList.length < 30) {
     fetchData()
   }
 
   return (
-    <ObservationsContext.Provider value={observationsList}>
+    <ObservationsContext.Provider value={{observations: observationsList, getInsect}}>
       {children}
     </ObservationsContext.Provider>
   )

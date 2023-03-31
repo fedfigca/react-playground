@@ -1,22 +1,30 @@
-import { Card, CardMedia, CardContent } from '@mui/material'
+import { Card, CardActionArea, CardMedia, CardContent } from '@mui/material'
 import { Observation } from '../resources/inaturalist-data-types'
 
 import './insect-card.scss'
+import { useNavigate } from 'react-router-dom'
 
 function insectCard({observation}: {observation: Observation}) {
+  const navigate = useNavigate()
+
+  function navigateToInsect() {
+    navigate(`/insect/${observation.id}`)
+  }
 
   return (
     <Card
-        sx={{ maxWidth: 345 }}
-        className="igalore__card"
-        id={`igalore__icard--${observation.id}`}>
+      sx={{ maxWidth: 345 }}
+      className="igalore__card"
+      id={`igalore__icard--${observation.id}`}>
+
+      <CardActionArea onClick={navigateToInsect}>
         { observation.observation_photos_count! > 0 ?
           <CardMedia
             sx={{ height: 210 }}
             image={observation.photos![2] && observation.photos![2].small_url ? observation.photos![1].small_url || undefined : observation.photos![0].small_url || undefined}
             title="Idalus crinis"
           />
-          : ""}
+        : ""}
         <CardContent>
           <ul className="igalore__card--datalist">
             <li className="igalore__card--datalist-item">
@@ -46,7 +54,8 @@ function insectCard({observation}: {observation: Observation}) {
             </li>
           </ul>
         </CardContent>
-      </Card>
+      </CardActionArea>
+    </Card>
   )
 }
 

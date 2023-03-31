@@ -1,0 +1,26 @@
+.igalore__insect--info-box {
+  padding: 20px;
+  background-color: #e7b91b;
+  color: #1a2b3c;
+}
+
+.igalore__insect--data {
+  padding: 20px;
+  margin: 40px 0;
+  width: 100vw;
+  max-width: 100%;
+}
+
+.igalore__sci-name {
+  font-style: italic;
+}
+
+.igalore__insect-image__fullscreen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  max-width: 100%;
+  height: auto;
+}

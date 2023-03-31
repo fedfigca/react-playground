@@ -1,7 +1,8 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useRouteError } from "react-router-dom";
 
 import Home from '../pages/Home'
 import Insect from '../pages/Insect'
+import ErrorBoundary from "../pages/Error";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +11,8 @@ const router = createBrowserRouter([
   },
   {
     path: "insect/:id",
-    element: <Insect />
+    element: <Insect />,
+    errorElement: <ErrorBoundary />
   }
 ])
 
