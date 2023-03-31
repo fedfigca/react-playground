@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { Container, CssBaseline, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 
 import './Home.scss'
 import Highlights from '../components/highlights'
@@ -27,8 +27,6 @@ function Home() {
 
   return (
     <Container className='igalore' ref={homeContainer}>
-      <CssBaseline />
-
       <section className='igalore__hero'>
         <Typography gutterBottom variant="h1" component="h1" className='igalore__hero-header'>
           Insect Galore!

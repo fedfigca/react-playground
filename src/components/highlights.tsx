@@ -18,7 +18,6 @@ function highlights() {
 
     if (element && !highlightRefs.current.includes(element)) {
       highlightRefs.current.push(element);
-      console.log(element)
     }
   }
 
@@ -50,7 +49,6 @@ function highlights() {
       scale: 1,
       stagger: 0.5
     })
-    console.log('vez')
   }, [highlightRefs.current]);
 
   return (
