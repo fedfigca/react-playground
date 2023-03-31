@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 
+import { ObservationsContext } from '../resources/data-service'
 import { Observation } from '../resources/inaturalist-data-types'
-import { getObservations } from '../resources/data-service'
 import FlipCard from './flip-card'
 import InsectCard from './insect-card'
 import InsectPicture from './insect-picture'
@@ -10,7 +10,9 @@ import InsectPicture from './insect-picture'
 import './highlights.scss'
 
 function highlights() {
-  const [highlights, setHighlights] = useState<Observation[]>([]);
+  const { observations } = useContext(ObservationsContext)
+  const [ highlights, setHighlights ] = useState<Observation[]>([])
+
   const highlightRefs = useRef<(HTMLElement | null)[]>([]);
   highlightRefs.current = [];
 
@@ -22,34 +24,22 @@ function highlights() {
   }
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getObservations()
-        if (data.length > 6) {
-          data.sort( () => 0.5 - Math.random() )
-          setHighlights(data.slice(0, 6))
-        } else {
-          setHighlights(data);
-        }
-      } catch (error) {
-        console.log(error)
-        return error
-      }
+    if (highlightRefs.current.length > 0) {
+      gsap.fromTo(highlightRefs.current, {
+        opacity: 0,
+        scale: 0.4
+      }, {
+        opacity: 1,
+        scale: 1,
+        stagger: 0.5
+      })
     }
-
-    fetchData()
-  }, [])
+  }, [highlightRefs.current]);
 
   useEffect(() => {
-    gsap.fromTo('.igalore__flipcard', {
-      opacity: 0,
-      scale: 0.4
-    }, {
-      opacity: 1,
-      scale: 1,
-      stagger: 0.5
-    })
-  }, [highlightRefs.current]);
+    const randomItems = observations.sort( () => 0.5 - Math.random() ).slice(0, 6)
+    setHighlights(randomItems)
+  }, [observations])
 
   return (
     <section className="igalore__higlights">
