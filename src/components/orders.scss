@@ -1,4 +1,18 @@
 .igalore__wasps-title {
   color: #fef8ec;
-  margin-bottom: 20px;
+  padding: 40px 0 20px;
+}
+
+.igalore__wasp-item {
+  transition: all 150ms linear;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #1a2b3c;
+    color: #fef8ec;
+
+    p {
+      color: #fef8ec;
+    }
+  }
 }

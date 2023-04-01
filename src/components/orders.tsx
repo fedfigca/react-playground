@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from 'react'
+import { Paper, Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText, Divider } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+
 import { ObservationsContext } from '../resources/data-service'
 import { Observation } from '../resources/inaturalist-data-types'
-import { Paper, Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText, Divider } from '@mui/material'
-
 import './orders.scss'
 
 enum orders {
@@ -10,6 +11,7 @@ enum orders {
 }
 
 function Orders() {
+  const navigate = useNavigate()
   const { observations } = useContext(ObservationsContext)
   const [ hymenoptera, setHymenoptera ] = useState<Observation[]>([])
 
@@ -21,9 +23,13 @@ function Orders() {
     setHymenoptera(filterByOrder(orders.HYMENOPTERA))
   }, [observations])
 
+  function navigateToInsect(id: number) {
+    navigate(`/insect/${id}`)
+  }
+
   return (
     <section className='igalore__wasps'>
-      <Typography className='igalore__wasps-title' variant='h2'>Wasps, Bees, Ants and Sawflies</Typography>
+      <Typography className='igalore__wasps-title' variant='h3'>Wasps, Bees, Ants and Sawflies</Typography>
 
       <Paper className='igalore__wasp-hymenoptera' elevation={3}>
         <List
@@ -33,7 +39,7 @@ function Orders() {
           {hymenoptera.map((insect, index) => (
             <>
               {index > 0 ? <Divider /> : ''}
-              <ListItem key={insect.id}>
+              <ListItem className='igalore__wasp-item' key={insect.id} onClick={() => navigateToInsect(insect.id!)}>
                 <ListItemAvatar>
                   <Avatar src={insect.photos![0].square_url || ''} />
                 </ListItemAvatar>
