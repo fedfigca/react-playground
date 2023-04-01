@@ -6,6 +6,10 @@
 .igalore__wasp-item {
   transition: all 150ms linear;
 
+  p {
+    transition: all 150ms linear;
+  }
+
   &:hover {
     cursor: pointer;
     background-color: #1a2b3c;

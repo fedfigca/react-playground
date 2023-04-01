@@ -46,15 +46,15 @@ function Orders() {
           dense
         >
           {hymenoptera.map((insect, index) => (
-            <>
+            <React.Fragment key={insect.id}>
               {index > 0 ? <Divider /> : ''}
-              <ListItem className='igalore__wasp-item' key={insect.id} onClick={() => navigateToInsect(insect.id!)}>
+              <ListItem className='igalore__wasp-item' onClick={() => navigateToInsect(insect.id!)}>
                 <ListItemAvatar>
                   <Avatar src={insect.photos![0].square_url || ''} />
                 </ListItemAvatar>
                 <ListItemText primary={insect.species_guess} secondary={`${insect.observation_photos_count} photos`} />
               </ListItem>
-            </>
+            </React.Fragment>
           ))}
         </List>
       </Paper>
