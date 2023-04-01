@@ -1,0 +1,28 @@
+.igalore__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-color: #fef8ec;
+  color: #1a2b3c;
+  z-index: 300;
+}
+
+.igalore__header-logo {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+
+.igalore__header-logo-image {
+  max-height: 120px;
+  margin: 0 10px;
+}

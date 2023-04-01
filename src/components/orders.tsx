@@ -3,7 +3,7 @@ import { ObservationsContext } from '../resources/data-service'
 import { Observation } from '../resources/inaturalist-data-types'
 import { Paper, Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText, Divider } from '@mui/material'
 
-import './Orders.scss'
+import './orders.scss'
 
 enum orders {
   'HYMENOPTERA' = 47201,

@@ -27,10 +27,10 @@ function Home() {
   }, []);
 
   return (
-    <Container className='igalore' ref={homeContainer}>
+    <Container ref={homeContainer}>
       <section className='igalore__hero'>
-        <Typography gutterBottom variant="h1" component="h1" className='igalore__hero-header'>
-          Insect Galore!
+        <Typography gutterBottom variant="h3" component="h1" className='igalore__hero-header'>
+          Highlights
         </Typography>
       </section>
 
