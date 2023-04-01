@@ -4,6 +4,7 @@ import { Container, Typography } from '@mui/material';
 
 import './Home.scss'
 import Highlights from '../components/highlights'
+import Orders from '../components/orders';
 
 function Home() {
   const homeContainer = useRef(null);
@@ -35,9 +36,8 @@ function Home() {
 
       <Highlights />
 
-      <section className='igalore__orders'>
+      <Orders />
 
-      </section>
     </Container>
   )
 }
