@@ -6,6 +6,10 @@ import './Home.scss'
 import Highlights from '../components/highlights'
 import Orders from '../components/orders';
 
+/**
+ *
+ * @returns {React.ReactNode} The Home Page component
+ */
 function Home() {
   const homeContainer = useRef(null);
 
@@ -28,11 +32,6 @@ function Home() {
 
   return (
     <Container ref={homeContainer}>
-      <section className='igalore__hero'>
-        <Typography gutterBottom variant="h3" component="h1" className='igalore__hero-header'>
-          Highlights
-        </Typography>
-      </section>
 
       <Highlights />
 

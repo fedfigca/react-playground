@@ -3,6 +3,10 @@ import { Paper, Typography } from "@mui/material"
 import logo from '../assets/fig-dev-logo.png'
 import './header.scss'
 
+/**
+ *
+ * @returns {React.ReactNode} The Header component
+ */
 function Header() {
 
   return (

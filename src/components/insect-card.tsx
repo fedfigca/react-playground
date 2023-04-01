@@ -3,7 +3,13 @@ import { Observation } from '../resources/inaturalist-data-types'
 
 import './insect-card.scss'
 import { useNavigate } from 'react-router-dom'
+import React from 'react'
 
+/**
+ *
+ * @param {{observation: Observation}} {observation} The Observation to display
+ * @returns {React.ReactNode} A MUI Card display of the observation
+ */
 function insectCard({observation}: {observation: Observation}) {
   const navigate = useNavigate()
 

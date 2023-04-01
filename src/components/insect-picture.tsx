@@ -2,7 +2,20 @@ import { Observation } from '../resources/inaturalist-data-types'
 
 import './insect-picture.scss'
 
+/**
+ * This component takes an observation object and creates a display that
+ * uses the main image and basic info
+ *
+ * @param {Observation} {observation} - The observation object to be displayed
+ * @returns {React.ReactNode} Picture and leyend display of an Observation
+ */
 function insectPicture({observation}: {observation: Observation}) {
+
+  /**
+   *
+   * @param grade - a description of theobservation grade, "research" or "needs_id"
+   * @returns JSX.Element with a badge style element describing the grade
+   */
   function createGrade(grade: string) {
     let qualityGrade = {
       description: 'Needs Id',

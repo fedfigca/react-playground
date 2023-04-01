@@ -30,7 +30,7 @@ type ContextProps = {
 }
 
 type WithChildProps = {
-  children: JSX.Element
+  children: React.ReactNode
 }
 
 export const ObservationsContext = createContext({

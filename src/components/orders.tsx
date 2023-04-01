@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Paper, Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText, Divider } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,9 +7,18 @@ import { Observation } from '../resources/inaturalist-data-types'
 import './orders.scss'
 
 enum orders {
+  /**
+   * Order IDs from iNaturalist's site
+   * We handle only Hymenoptera for now
+   */
   'HYMENOPTERA' = 47201,
 }
 
+/**
+ *
+ * @returns {React.ReactNode} A list of observations
+ * of the Hymenoptera Order
+ */
 function Orders() {
   const navigate = useNavigate()
   const { observations } = useContext(ObservationsContext)

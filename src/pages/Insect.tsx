@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { gsap } from 'gsap'
 import { Container, Typography, Paper, CircularProgress, ImageList, ImageListItem, Modal, Box } from '@mui/material';
 
@@ -11,6 +11,10 @@ type routeParams = {
   id: string
 }
 
+/**
+ *
+ * @returns {React.ReactNode} Insect detail page
+ */
 function Insect() {
   const insectContainer = useRef(null)
   const { id } = useParams<routeParams>()
@@ -20,16 +24,20 @@ function Insect() {
     url: ''
   });
 
+  const navigate = useNavigate()
   const [ insect, setInsect ] = useState<Observation>({id: -1})
-
   const insectId = parseInt(id as string)
 
   useEffect(() => {
+    /**
+     * Get the specific observation to display
+     */
     if (observations.length === 30 && !isNaN(insectId)) {
       try {
         setInsect(getInsect(insectId));
       } catch(error) {
         console.log(error);
+        navigate('/error');
       }
     }
   }, [observations])
