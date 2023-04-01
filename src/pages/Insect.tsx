@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { gsap } from 'gsap'
 import { Container, Typography, Paper, CircularProgress, ImageList, ImageListItem, Modal, Box } from '@mui/material';
 
@@ -83,7 +83,8 @@ function Insect() {
               </Typography>
             </div>
 
-            {insect.uri !== undefined ? <Typography variant='body1'><p>View the full iNaturalist observation <a target='blank' href={insect.uri || ''}>Here</a></p></Typography> : ''}
+            {insect.uri !== undefined ? <Typography variant='body1'><p>View the full iNaturalist observation <a target='blank' href={insect.uri || ''}>Here</a> or</p></Typography> : ''}
+            <Typography variant='body1'>Go back <Link to={'/'}>Home</Link> </Typography>
 
             <ImageList variant='quilted' cols={4}>
               {insect.photos!.map((photo) => (
