@@ -6,9 +6,9 @@ import './Error.scss'
 
 /**
  *
- * @returns {React.ReactNode} The Error Page component
+ * @returns {React.ReactNode} The 404 Error Page component
  */
-function ErrorBoundary() {
+function NotFound() {
   const error = useRouteError()
   console.log(error)
 
@@ -16,10 +16,10 @@ function ErrorBoundary() {
     <Paper className="igalore__error-page" elevation={5}>
       <img src={logo} alt="Figueroa Development" className="igalore__error-image" />
       <Typography variant="h5">
-        An error ocurred, let's go back <Link to={'/'}>Home</Link>
+        Page not found, let's go back <Link to={'/'}>Home</Link>
       </Typography>
     </Paper>
   )
 }
 
-export default ErrorBoundary
+export default NotFound

@@ -1,7 +1,13 @@
 .igalore__error-page {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 250px;
-  padding: 80px;
+  padding: 50px 80px 80px;
+}
+
+.igalore__error-image {
+  max-width: 150px;
+  margin-bottom: 40px;
 }
